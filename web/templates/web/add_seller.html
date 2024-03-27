@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Сохранить продавца</button>
+    </form><br>
+    <h3>Все продавцы:</h3>
+    {% for seller in sellers %}
+    <li>{{ seller.first_name }}, {{ seller.second_name }}</li><a href="{% url 'edit_seller' seller.id %}">Изменить</a><br>
+    {% endfor %}
+</body>
+</html>

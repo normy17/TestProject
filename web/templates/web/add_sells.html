@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Сохранить продажу</button>
+    </form><br>
+    <h3>Все продажи:</h3>
+    {% for sale in sells %}
+        <li>{{ sale.id }}</li> <a href="{% url 'edit_sells' sale.id %}">Изменить</a> <a href="#">Удалить</a><br>
+    {% endfor %}
+</body>
+</html>
