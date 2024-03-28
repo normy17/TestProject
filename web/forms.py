@@ -66,7 +66,7 @@ class DateChoice(forms.Form):
         label='Выберите дату:',
         widget=forms.DateInput(
                 attrs={
-                    'type': 'date-local'
+                    'type': 'date'
                 },
             )
     )
@@ -74,9 +74,18 @@ class DateChoice(forms.Form):
 
 class TimeIntervalChoice(forms.Form):
     first_date = forms.DateField(
-        label='Выберите начало промежутка:',
-        widget=forms.DateInput()
+        label='Выберите дату:',
+        widget=forms.DateInput(
+                attrs={
+                    'type': 'date'
+                },
+            )
     )
     second_date = forms.DateField(
-        label='Выберите конец промежутка:',
+        label='Выберите дату:',
+        widget=forms.DateInput(
+                attrs={
+                    'type': 'date'
+                },
+            )
     )

@@ -4,7 +4,7 @@ from django.db import models
 class Buyer(models.Model):
     first_name = models.CharField(max_length=256)
     second_name = models.CharField(max_length=256)
-    phone = models.IntegerField(max_length=20)
+    phone = models.IntegerField()
     email = models.EmailField(max_length=256)
 
     def __str__(self):
@@ -14,7 +14,7 @@ class Buyer(models.Model):
 class Seller(models.Model):
     first_name = models.CharField(max_length=256)
     second_name = models.CharField(max_length=256)
-    phone = models.IntegerField(max_length=20)
+    phone = models.IntegerField()
     email = models.EmailField(max_length=256)
     date_start_work = models.DateField()
     position = models.CharField(max_length=256, choices=(('Seller', 'Продавец'),
@@ -37,5 +37,5 @@ class SellsInfo(models.Model):
     buyer = models.ForeignKey(Buyer, on_delete=models.CASCADE)
     seller = models.ForeignKey(Seller, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    sell_date = models.DateTimeField()
-    price = models.IntegerField(max_length=20)
+    sell_date = models.DateField()
+    price = models.IntegerField()
